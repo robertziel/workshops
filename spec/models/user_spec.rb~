@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe User do
-
+  it { should have_db_column(:firstname).of_type(:string).with_options(null: false) }
+  it { should have_db_column(:lastname).of_type(:string).with_options(null: false) }
   it { should validate_presence_of :firstname }
   it { should validate_presence_of :lastname }
 
