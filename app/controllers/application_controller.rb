@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
@@ -7,5 +8,12 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :firstname << :lastname 
+  end
 
 end
