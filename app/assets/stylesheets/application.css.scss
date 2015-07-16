@@ -1,17 +1,71 @@
 @import "bootstrap";
+body{
+color: #6B6E80;
+}
+.navbar-brand a{
+color: #555;
+}
+form{
+max-width:600px;
+min-width: 400px;
+    width: 50%;
+    margin: 0 auto;
+}
+h3{
+text-align: center;
+}
+.navbar-nav{
+float:right;
+font-size:20px;
+}
+#review_rating{
+width:50px;
+font-size:20px;
+}
 .btn {
     padding: 14px 24px;
     border: 0 none;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    border-radius: 0px;
+transition: all 0.2s ease-in-out 0s;
+}
+.btn-default{
+background-color: #FFA200;
+color: white;
+}
+btn-primary {
+    background-color: #0089FF;
 }
 .cont {
-text-align:center;
-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.22);
+text-align: center;
 border-radius: 10px;
-border: 1px solid rgba(179, 179, 179, 0.61);
-margin:20px;
+margin: 20px;
+overflow: hidden;
+margin-bottom: 30px;
+background: #FFF none repeat scroll 0% 0%;
+border: 1px solid #EEE;
+}
+.container-fluid{
+max-width: 1200px;
+}
+a:hover, a:focus {
+    color: #2A6496;
+    text-decoration: none;
 }
 
-
+.title{
+color: #FC6E51;
+text-decoration: none;
+transition: all 0.2s ease-in-out 0s;
+font-size: 25px;
+text-decoration:none;
+}
+.bt{
+float:left;
+}
+.category_shade{
+background-color: #56CFFF;
+height: 48px;
+}
