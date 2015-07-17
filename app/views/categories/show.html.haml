@@ -1,29 +1,39 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b Category:
   = category.name
 
 
 .row
   - category.products.each do |product|
-    .col-lg-3.col-md-4.col-sm-6.col-xs-12
-      .product.cont
-        %p= link_to product.title, category_product_path(product.category, product), :class => "title"
-        %p= product.description
-        %p= "#{product.price} PLN"
-        .category_shade
-          %p.bt= link_to 'Show', category_product_path(product.category, product), :class => "btn btn-primary large"
-          - if current_user.try(:admin?)
+    .col-md-4.col-sm-6.col-xs-12
+      - if current_user.try(:admin?) or current_user == product.user
+        .edit
+          .edit-2
             %p.bt= link_to 'Edit', edit_category_product_path(product.category, product), :class => "btn btn-primary large"
             %p.bt= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger large"
+      .product.cont
+        %p.title.title_prod= link_to product.title, category_product_path(product.category, product)
+        .left-marg-1
+        .right-marg-1
+        .left-marg-2
+        .right-marg-2
+        .left-marg-3
+        .right-marg-3
+        %p= "#{product.description[0,130]}..."
+        %p.price= "#{product.price} PLN"
+        .av_rating.some{ :style => "background-color:rgba(#{500-product.average_rating.to_i*100}, #{-35+product.average_rating.to_i*35 unless product.average_rating == "-"}, 0, 0.5);#{"color:#6B6E80;" if product.average_rating == "-"}"}= "#{ product.average_rating if product.average_rating == "-" }#{ product.average_rating.round(1) unless product.average_rating == "-" }/5"
+        .category_shade
+          %p= link_to 'Show', category_product_path(product.category, product), :class => "btn btn-primary large"
 
 %br
 
-%p
-  %h3 New product
-  = render 'products/form'
+.bottom.col-lg-12
+  - if current_user
+    %h3 Add new product
+    = render 'products/form'
+  - if current_user.try(:admin?)
+    = link_to 'Edit', edit_category_path(category), class: 'btn btn-primary'
 
-= link_to 'Edit', edit_category_path(category), class: 'btn btn-primary'
-
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  = link_to 'Back', categories_path, class: 'btn btn-primary'

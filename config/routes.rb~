@@ -4,10 +4,10 @@ Rails.application.routes.draw do
       resources :reviews
     end
   end
-  resources :users
+
   devise_for :users, controllers: { sessions: "users/sessions" }
 
-
+  'users/[:id]' -> 'users#show'
 
   root 'categories#index'
 end

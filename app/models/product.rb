@@ -11,6 +11,8 @@ class Product < ActiveRecord::Base
 
   def average_rating
     x = self.reviews.average(:rating)
+    x = "-" unless x
+    return x
   end
 
 end

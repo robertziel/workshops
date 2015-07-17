@@ -10,4 +10,9 @@ class User < ActiveRecord::Base
   validates_presence_of :firstname
   validates_presence_of :lastname
 
+  def average_rating
+    @x = Review.joins(:product).where(:products => { :user_id => self}).average(:rating)
+    @x = "-" unless @x
+    return @x
+  end
 end

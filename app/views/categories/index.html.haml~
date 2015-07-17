@@ -4,13 +4,15 @@
 .row
   - categories.each do |category|
     .col-lg-4.col-md-4.col-sm-6.col-xs-12
-      .cont
-        %p= link_to category.name, category, :class => "title"
-        %.category_shade
-          %p.bt= link_to 'Show', category, :class => "btn btn-primary large"
-          - if current_user.try(:admin?)
+      - if current_user.try(:admin?)
+        .edit
+          .edit-2
             %p.bt= link_to 'Edit', edit_category_path(category), :class => "btn btn-primary large"
             %p.bt= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger large"
+      .cont
+        %p.title.title_cat= link_to category.name, category
+        .category_shade
+          %p= link_to 'Show', category, :class => "btn btn-primary large"
 
 %br
 

@@ -5,11 +5,25 @@ color: #6B6E80;
 .navbar-brand a{
 color: #555;
 }
+.bottom{
+background-color: #F8F8F8;
+border-color: #E7E7E7;
+margin-top: 20px;
+padding: 20px;
+margin: 20px;
+}
+.log-panel {
+    list-style-type: none;
+    float: right;
+    font-size: 20px;
+    margin: 10px;
+}
 form{
 max-width:600px;
 min-width: 400px;
     width: 50%;
     margin: 0 auto;
+margin-bottom: 20px;
 }
 h3{
 text-align: center;
@@ -21,6 +35,9 @@ font-size:20px;
 #review_rating{
 width:50px;
 font-size:20px;
+}
+.row div{
+margin-bottom:10px;
 }
 .btn {
     padding: 14px 24px;
@@ -38,14 +55,27 @@ color: white;
 btn-primary {
     background-color: #0089FF;
 }
+.show_data{
+text-align: center;
+overflow: hidden;
+background: #FFF none repeat scroll 0% 0%;
+border: 1px solid #EEE;
+margin: 5px;
+padding: 60px;
+}
 .cont {
 text-align: center;
-border-radius: 10px;
+border-radius: 50%;
 margin: 20px;
 overflow: hidden;
 margin-bottom: 30px;
 background: #FFF none repeat scroll 0% 0%;
 border: 1px solid #EEE;
+height: 300px;
+width: 300px;
+margin: 0px auto;
+position:relative;
+z-index:1;
 }
 .container-fluid{
 max-width: 1200px;
@@ -54,13 +84,57 @@ a:hover, a:focus {
     color: #2A6496;
     text-decoration: none;
 }
-
-.title{
+.edit{
+margin: 0px auto;
+width: 207px;
+}
+.edit-2{
+position: absolute;
+top: 200px;
+height: 148px;
+padding-top: 100px;
+background-color: #56CFFF;
+overflow: hidden;
+border-radius: 4px;
+border-top-right-radius: 100px;
+border-top-left-radius: 100px;
+z-index:1;
+}
+.left-marg-1{float:left;clear:left;width:10px;height:20px;}
+.right-marg-1{float:right;width:10px;height:20px;}
+.left-marg-2{float:left;clear:left;width:5px;height:20px;}
+.right-marg-2{float:right;width:5px;height:20px;}
+.left-marg-3{float:left;clear:left;width:2px;height:20px;}
+.right-marg-3{float:right;width:2px;height:20px;}
+.title a, .title{
 color: #FC6E51;
 text-decoration: none;
 transition: all 0.2s ease-in-out 0s;
 font-size: 25px;
 text-decoration:none;
+}
+.title a:hover{
+color: #2A6496;
+}
+.av_rating {
+    position: absolute;
+    top: 249px;
+    font-size: 20px;
+    color: #FFF;
+    width: 300px;
+    height: 100px;
+}
+.price{
+color: rgb(248, 61, 0);
+}
+.product_description{
+text-align: justify;
+}
+.title_cat{
+margin-top: 100px;
+}
+.title_prod{
+margin-top: 50px;
 }
 .bt{
 float:left;
@@ -68,4 +142,41 @@ float:left;
 .category_shade{
 background-color: #56CFFF;
 height: 48px;
+position: absolute;
+width: 100%;
+top: 200px;
+}
+.review{
+font-weight: 300;
+padding: 16px;
+margin-top: 10px;
+border: 1px solid #EEE;
+border-bottom-right-radius: 10%;
+background-color: #EDEDED;
+}
+.review .author{
+color: #FC6E51;
+transition: all 0.2s ease-in-out 0s;
+font-size: 20px;
+text-decoration: none;
+}
+.rating{
+float: right;
+margin: 3px;
+padding: 10px;
+color: white;
+}
+.average_rat{
+position: absolute;
+border-radius: 50%;
+width: 75px;
+height: 75px;
+float: right;
+margin: 3px;
+color: #FFF;
+font-size: 25px;
+padding-top: 18px;
+bottom: -30px;
+right: 50px;
+z-index: 1;
 }

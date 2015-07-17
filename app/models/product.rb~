@@ -10,7 +10,9 @@ class Product < ActiveRecord::Base
   
 
   def average_rating
-    x = self.reviews.inject{ |sum, el| sum + el.rating }.to_f / self.reviews.size
+    x = self.reviews.average(:rating)
+    x = "no ratings" unless x
+    return x
   end
 
 end

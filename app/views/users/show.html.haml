@@ -1,0 +1,50 @@
+%p#notice= notice
+%p#error= flash[:error]
+
+.row
+  .col-sm-4.col-xs-12
+    .show_data
+      .title= "#{@user.firstname} #{@user.lastname}"
+      .average_rat.some{ :style => "background-color:rgba(#{500-@user.average_rating.to_i*100}, #{-35+@user.average_rating.to_i*35 unless @user.average_rating == "-"}, 0, 0.8);#{"color:#6B6E80;background-color:#ECECEC;" if @user.average_rating == "-"}"}= "#{@user.average_rating.round(1) unless @user.average_rating == "-"}#{@user.average_rating if @user.average_rating == "-"}/5"
+  .col-sm-8.col-xs-12
+    .show_data
+      .product_description
+
+
+.row
+  .col-sm-4.col-xs-12
+    %h3 Reviews
+    - @user.products.each do |product|
+      - product.reviews.each do |review|
+        .review
+          .rating.some{ :style => "background-color:rgba(#{500-review.rating.to_i*100}, #{-35+review.rating.to_i*35 unless review.rating == "-"}, 0, 0.5);color:#6B6E80;"}= "Rating #{review.rating}/5"
+          .content= review.content
+          .auhor= link_to "#{review.user.firstname} #{review.user.lastname}", "/users/#{review.user_id}"
+
+  .col-sm-8.col-xs-12
+    %h3 Products
+    - @user.products.each do |product|
+      .col-lg-6.col-sm-12
+        - if current_user.try(:admin?) or current_user == product.user
+          .edit
+            .edit-2
+              %p.bt= link_to 'Edit', edit_category_product_path(product.category, product), :class => "btn btn-primary large"
+              %p.bt= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger large"
+        .product.cont
+          %p.title.title_prod= link_to product.title, category_product_path(product.category, product)
+          .left-marg-1
+          .right-marg-1
+          .left-marg-2
+          .right-marg-2
+          .left-marg-3
+          .right-marg-3
+          %p= "#{product.description[0,130]}..."
+          %p.price= "#{product.price} PLN"
+          .av_rating.some{ :style => "background-color:rgba(#{500-product.average_rating.to_i*100}, #{-35+product.average_rating.to_i*35 unless product.average_rating == "-"}, 0, 0.5);#{"color:#6B6E80;" if product.average_rating == "-"}"}= "#{ product.average_rating if product.average_rating == "-" }#{ product.average_rating.round(1) unless product.average_rating == "-" }/5"
+          .category_shade
+            %p= link_to 'Show', category_product_path(product.category, product), :class => "btn btn-primary large"
+
+
+
+.bottom.col-lg-12
+  = link_to 'Back', '/', class: 'btn btn-primary'

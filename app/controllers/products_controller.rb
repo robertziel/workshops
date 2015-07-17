@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   expose_decorated(:reviews, ancestor: :product)
 
   def index
+        redirect_to category_url(category)
   end
 
   def show
@@ -24,7 +25,7 @@ class ProductsController < ApplicationController
 
   def create
 
-    self.product = Product.new(product_params)
+    self.product = current_user.products.build(product_params)
 
     if product.save
       category.products << product
