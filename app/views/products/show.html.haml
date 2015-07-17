@@ -30,4 +30,4 @@
 .bottom.col-lg-12
   - if current_user.try(:admin?)
     = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
-  = link_to 'Back', category_products_path, class: 'btn btn-primary'
+  = link_to 'Back', 'javascript: history.go(-1)', class: 'btn btn-primary'

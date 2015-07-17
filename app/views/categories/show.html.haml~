@@ -29,11 +29,11 @@
 
 %br
 
-.bottom
+.bottom.col-lg-12
   - if current_user
     %h3 Add new product
     = render 'products/form'
   - if current_user.try(:admin?)
     = link_to 'Edit', edit_category_path(category), class: 'btn btn-primary'
 
-  = link_to 'Back', categories_path, class: 'btn btn-primary'
+  = link_to 'Back', 'javascript: history.go(-1)', class: 'btn btn-primary'

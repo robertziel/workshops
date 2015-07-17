@@ -9,7 +9,7 @@
       = "#{product.price} PLN"
       %b Category
       = product.category.name
-      .average_rat.some{ :style => "background-color:rgba(#{500-product.average_rating.to_i*100}, #{-35+product.average_rating.to_i*35 unless product.average_rating == "-"}, 0, 0.8);#{"color:#6B6E80;background-color:#ECECEC;" if @user.average_rating == "-"}"}= "#{@user.average_rating.round(1) unless @user.average_rating == "-"}#{@user.average_rating if @user.average_rating == "-"}/5"
+      .average_rat.some{ :style => "background-color:rgba(#{500-product.average_rating.to_i*100}, #{-35+product.average_rating.to_i*35 unless product.average_rating == "-"}, 0, 0.8);#{"color:#6B6E80;background-color:#ECECEC;" if product.average_rating == "-"}"}= "#{product.average_rating.round(1) unless product.average_rating == "-"}#{product.average_rating if product.average_rating == "-"}/5"
   .col-sm-8.col-xs-12
     .show_data
       .product_description
@@ -30,4 +30,4 @@
 .bottom.col-lg-12
   - if current_user.try(:admin?)
     = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
-  = link_to 'Back', category_products_path, class: 'btn btn-primary'
+  = link_to 'Back', session[:my_previous_url], class: 'btn btn-primary'

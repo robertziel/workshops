@@ -24,7 +24,7 @@
   .col-sm-8.col-xs-12
     %h3 Products
     - @user.products.each do |product|
-      .col-sm-6.col-sm-12
+      .col-lg-6.col-sm-12
         - if current_user.try(:admin?) or current_user == product.user
           .edit
             .edit-2
@@ -47,4 +47,4 @@
 
 
 .bottom.col-lg-12
-  = link_to 'Back', '/', class: 'btn btn-primary'
+  = link_to 'Back', session[:my_previous_url], class: 'btn btn-primary'
