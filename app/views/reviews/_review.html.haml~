@@ -1,4 +1,4 @@
 .review
   .rating.some{ :style => "background-color:rgba(#{500-review.rating.to_i*100}, #{-35+review.rating.to_i*35 unless review.rating == "-"}, 0, 0.5);#{"color:#6B6E80;" if product.average_rating == "-"}"}= "Rating #{review.rating}/5"
   .content= review.content
-  .auhor= link_to review.author, review.user_id
+  .auhor= link_to review.author, "/users/#{review.user_id}"

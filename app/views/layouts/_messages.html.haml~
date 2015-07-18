@@ -1,1 +1,2 @@
-= flash[:notice]
+- if flash[:error]
+  = flash[:error]

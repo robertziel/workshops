@@ -6,6 +6,13 @@ h1, h2{
 text-align: center;
 margin-bottom:40px;
 }
+.notice{
+color: green;
+border: 1px solid green;
+border-radius: 5px;
+padding: 5px;
+background-color: rgba(0, 128, 0, 0.14);
+}
 input, textarea, select{
 border: 1px solid #E6E6E6 !important;
 border-radius: 0px !important;
@@ -22,6 +29,7 @@ border-color: #E7E7E7;
 margin-top: 20px;
 padding: 20px;
 margin: 20px;
+height: 90px;
 }
 .bottom a{
 float:left;
