@@ -2,7 +2,7 @@
 body{
 color: #6B6E80;
 }
-h1{
+h1, h2{
 text-align: center;
 margin-bottom:40px;
 }
@@ -13,12 +13,19 @@ border-radius: 0px !important;
 .navbar-brand a{
 color: #555;
 }
+.back a{
+padding: 13px;
+}
 .bottom{
 background-color: #F8F8F8;
 border-color: #E7E7E7;
 margin-top: 20px;
 padding: 20px;
 margin: 20px;
+height: 90px;
+}
+.bottom a{
+float:left;
 }
 .log-panel {
     list-style-type: none;

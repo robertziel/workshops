@@ -2,6 +2,13 @@
 
 
 .row
+  - if categories.blank?
+    .col-sm-11.col-xs-10
+      .edit
+        .product.cont
+          %h3.some{ :style => "padding:30px;"}= "Oops.. no category to show.."
+          - if current_user.try(:admin?)
+            = link_to 'Add category', new_category_path, :class => "btn btn-green large", class: 'btn btn-primary'
   - categories.each do |category|
     .col-lg-4.col-md-4.col-sm-6.col-xs-12
       - if current_user.try(:admin?)
@@ -16,4 +23,6 @@
 
 %br
 
-= link_to 'New Category', new_category_path, :class => "btn btn-green large"
+- if current_user.try(:admin?)
+  .bottom.col-lg-12
+    = link_to 'New Category', new_category_path, :class => "btn btn-green large", class: 'btn btn-primary'
