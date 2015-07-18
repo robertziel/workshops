@@ -41,10 +41,11 @@
           %p= "#{product.description[0,130]}..."
           %p.price= "#{product.price} PLN"
           .av_rating.some{ :style => "background-color:rgba(#{500-product.average_rating.to_i*100}, #{-35+product.average_rating.to_i*35 unless product.average_rating == "-"}, 0, 0.5);#{"color:#6B6E80;" if product.average_rating == "-"}"}= "#{ product.average_rating if product.average_rating == "-" }#{ product.average_rating.round(1) unless product.average_rating == "-" }/5"
+          %p.ratings_name.post{:class => ("ratings_name2" if product.average_rating == "-")}= "Rating"
           .category_shade
             %p= link_to 'Show', category_product_path(product.category, product), :class => "btn btn-primary large"
 
 
 
 .bottom.col-lg-12
-  = link_to 'Back', session[:my_previous_url], class: 'btn btn-primary'
+  = link_to 'Back', 'javascript: history.go(-1)', class: 'btn btn-primary'

@@ -6,6 +6,10 @@ h1{
 text-align: center;
 margin-bottom:40px;
 }
+input, textarea, select{
+border: 1px solid #E6E6E6 !important;
+border-radius: 0px !important;
+}
 .navbar-brand a{
 color: #555;
 }
@@ -52,12 +56,22 @@ margin-bottom:10px;
     border-radius: 0px;
 transition: all 0.2s ease-in-out 0s;
 }
+.ratings_name{
+position: absolute;
+bottom: -5px;
+z-index: 2;
+left: 128px;
+color: white;
+}
+.ratings_name2{
+color: #6B6E80 !important;
+}
 .btn-default{
 background-color: #FFA200;
 color: white;
 }
-btn-primary {
-    background-color: #0089FF;
+.btn-primary {
+background-color: rgba(86, 156, 216, 0.66);
 }
 .show_data{
 text-align: center;
@@ -168,7 +182,7 @@ text-decoration: none;
 float: right;
 margin: 3px;
 padding: 10px;
-color: white;
+color: white !important;
 }
 .average_rat{
 position: absolute;
