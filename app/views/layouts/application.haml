@@ -21,7 +21,7 @@
           %li.log-panel= link_to 'Register', '/users/sign_up'
           %li.log-panel= link_to 'Login', new_user_session_path
     .container-fluid
-      .row
+      .row.contents_yeld
         .col-lg-12
           = render 'layouts/messages'
           = yield
