@@ -16,12 +16,13 @@
         %ul.nav.navbar-nav
         %li.back.log-panel= link_to 'Back', 'javascript: history.go(-1)', :class => "btn-primary"
         - if user_signed_in?
-          %li.log-panel= link_to 'Logout', destroy_user_session_path, :method => :delete       
+          %li.log-panel= link_to 'Logout', destroy_user_session_path, :method => :delete   
+          %li.log-panel= link_to 'Profile', '/users/'+ current_user.id 
         - else
           %li.log-panel= link_to 'Register', '/users/sign_up'
           %li.log-panel= link_to 'Login', new_user_session_path
-    .container-fluid.contents_yeld
-      .row
+    .container-fluid
+      .row.contents_yeld
         .col-lg-12
           = render 'layouts/messages'
           = yield
