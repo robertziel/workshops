@@ -28,7 +28,7 @@ color: #555;
 .contents_yeld{
 margin-top:50px;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
 	.contents_yeld{
 	  margin-top:100px;
 	}
