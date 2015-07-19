@@ -14,7 +14,7 @@
         .navbar-header
           %span.navbar-brand= link_to AppConfig.workshops_name, '/'
         %ul.nav.navbar-nav
-        %li.back.log-panel= link_to 'Back', 'javascript: history.go(-1)', :class => "btn-primary"
+        %li.back.log-panel= link_to 'Back', 'javascript: history.go(-1)', :class => "btn btn-primary"
         - if user_signed_in?
           %li.log-panel= link_to 'Logout', destroy_user_session_path, :method => :delete       
         - else
@@ -23,6 +23,5 @@
     .container-fluid
       .row
         .col-lg-12
-          - if flash[:error]
-            = render 'layouts/messages'
+          = render 'layouts/messages'
           = yield

@@ -12,4 +12,6 @@
   </div>
 <% end %>
 
+<div class="bottom col-xs-11 col-sm-11 col-md-11 col-lg-11" >
 <%= render "devise/shared/links" %>
+</div>

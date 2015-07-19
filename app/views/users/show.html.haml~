@@ -1,4 +1,4 @@
-- unless notice
+- if notice
   %p#notice= notice
   %p#error= flash[:error]
 
@@ -9,7 +9,12 @@
       .average_rat.some{ :style => "background-color:rgba(#{500-@user.average_rating.to_i*100}, #{-35+@user.average_rating.to_i*35 unless @user.average_rating == "-"}, 0, 0.8);#{"color:#6B6E80;background-color:#ECECEC;" if @user.average_rating == "-"}"}= "#{@user.average_rating.round(1) unless @user.average_rating == "-"}#{@user.average_rating if @user.average_rating == "-"}/5"
   .col-sm-8.col-xs-12
     .show_data
-      .product_description
+      %p
+        %b e-mail:
+        = @user.email
+      %p
+        %b last logged in:
+        = distance_of_time_in_words(@user.current_sign_in_at, Time.now) + " ago"
 
 
 .row
@@ -20,6 +25,9 @@
         .rating.some{ :style => "background-color:rgba(#{500-review.rating.to_i*100}, #{-35+review.rating.to_i*35 unless review.rating == "-"}, 0, 0.5);color:#6B6E80;"}= "Rating #{review.rating}/5"
         .publish_date= review.created_at.strftime("%d-%m-%Y")
         .content= review.content
+        %p
+          %b Product:
+          = link_to review.product.title, category_product_path(review.product.category, review.product)
         .auhor= link_to "#{review.user.firstname} #{review.user.lastname}", "/users/#{review.user_id}"
 
   .col-sm-8.col-xs-12
@@ -48,5 +56,5 @@
 
 
 
-.bottom.col-lg-12
+.bottom.col-xs-12.col-sm-12.col-md-12.col-lg-12
   = link_to 'Back', 'javascript: history.go(-1)', class: 'btn btn-primary'

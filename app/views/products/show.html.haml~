@@ -1,15 +1,21 @@
 - if notice
   %p#notice= notice
+- if flash[:error]
   %p#error= flash[:error]
 
 .row
   .col-sm-4.col-xs-12
     .show_data
       .title= product.title
-      %b Price:
-      = "#{product.price} PLN"
-      %b Category
-      = product.category.name
+      %p
+        %b Price:
+        = "#{product.price} PLN"
+      %p
+        %b Category
+        = product.category.name
+      %br
+        %b Seller:
+      .auhor= link_to "#{product.user.firstname} #{product.user.lastname}", "/users/#{product.user_id}"
       .average_rat.some{ :style => "background-color:rgba(#{500-product.average_rating.to_i*100}, #{-35+product.average_rating.to_i*35 unless product.average_rating == "-"}, 0, 0.8);#{"color:#6B6E80;background-color:#ECECEC;" if product.average_rating == "-"}"}= "#{product.average_rating.round(1) unless product.average_rating == "-"}#{product.average_rating if product.average_rating == "-"}/5"
   .col-sm-8.col-xs-12
     .show_data
@@ -29,7 +35,7 @@
     = render 'reviews/form'
 
 
-.bottom.col-lg-12
+.bottom.col-xs-12.col-sm-12.col-md-12.col-lg-12
   - if current_user.try(:admin?)
     = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
   = link_to 'Back', 'javascript: history.go(-1)', class: 'btn btn-primary'

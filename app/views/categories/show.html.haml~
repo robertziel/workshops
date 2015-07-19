@@ -10,7 +10,7 @@
     .col-sm-11.col-xs-10
       .edit
         .product.cont
-          %h3.some{ :style => "padding:30px;"}= "Oops.. no products in this category.."
+          %h3.some{ :style => "padding:40px;"}= "Oops.. no products in this category.."
           - if current_user
             %h3.some{ :style => "padding:10px;"}= "Add your new product below."
           - else
